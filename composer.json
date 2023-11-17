@@ -1,12 +1,12 @@
 {
-    "name": "gg-innovative/larafirebase",
-    "description": "Laravel Firebase Cloud Messaging.",
-    "homepage": "https://github.com/gg-innovative/larafirebase",
+    "name": "aristosya/larafirebase",
+    "description": "Laravel Firebase Cloud Messaging.With SendAll() method",
+    "homepage": "https://https://github.com/Aristosya/larafirebase-with-sendAll",
     "license": "MIT",
     "authors": [
         {
-            "name": "Gentrit Abazi",
-            "email": "gentritabazi01@gmail.com"
+            "name": "Gentrit Abazi, Aristosya",
+            "email": "gentritabazi01@gmail.com, r.chernogorov.work@gmail.com"
         }
     ],
     "autoload": {

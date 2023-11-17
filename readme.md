@@ -32,7 +32,8 @@ Follow the steps below to install the package.
 **Install via Composer**
 
 ```
-composer require gg-innovative/larafirebase
+composer require aristosya/larafirebase:dev-main
+
 ```
 
 **Copy Configuration**

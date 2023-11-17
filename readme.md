@@ -1,4 +1,4 @@
-###That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. <b>I don't claim any rights</b>
+###That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. I don't claim any rights
 
 
 ### Introduction
@@ -37,7 +37,7 @@ Open the `larafirebase.php` configuration file, which you just published, and se
 - `firebase_credentials`: This refers to the JSON credentials file for your Firebase project. Make sure it points to the correct location in your project. This JSON file contains the authentication information for your Firebase project, allowing your Laravel application to interact with Firebase services. You can generate this JSON file in the Firebase Console. Once you have it, specify its path in this configuration.
 
 
-##Configure your front application
+###Configure your front application
 
 IF you will use send notifications to all user, you should initialize all the devise tokens to topic "all" inside your front application (NOT FOR LARAVEL). 
 Example for Flutter:

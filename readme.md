@@ -1,5 +1,4 @@
-<h1>That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. <b>I don't claim any rights</b></h1>
-
+###That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. <b>I don't claim any rights</b>
 <p align="center"><img src="/art/cover.png" height="400"></p>
 
 <p align="center">
@@ -14,6 +13,8 @@
     </a>
 </p>
 
+
+###That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. <b>I don't claim any rights</b>
 
 ### Introduction
 

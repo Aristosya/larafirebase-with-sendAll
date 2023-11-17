@@ -1,20 +1,5 @@
 ###That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. <b>I don't claim any rights</b>
-<p align="center"><img src="/art/cover.png" height="400"></p>
 
-<p align="center">
-    <a href="https://packagist.org/packages/gg-innovative/larafirebase">
-        <img src="https://img.shields.io/packagist/dt/gg-innovative/larafirebase" alt="Total Downloads">
-    </a>
-    <a href="https://packagist.org/packages/gg-innovative/larafirebase">
-        <img src="https://img.shields.io/packagist/v/gg-innovative/larafirebase" alt="Latest Stable Version">
-    </a>
-    <a href="https://packagist.org/packages/gg-innovative/larafirebase">
-        <img src="https://img.shields.io/packagist/l/gg-innovative/larafirebase" alt="License">
-    </a>
-</p>
-
-
-###That's modified version of https://github.com/gg-innovative/larafirebase . For personal use only. <b>I don't claim any rights</b>
 
 ### Introduction
 
@@ -51,10 +36,9 @@ Open the `larafirebase.php` configuration file, which you just published, and se
 - `project_id`: Replace with your actual Firebase project ID.
 - `firebase_credentials`: This refers to the JSON credentials file for your Firebase project. Make sure it points to the correct location in your project. This JSON file contains the authentication information for your Firebase project, allowing your Laravel application to interact with Firebase services. You can generate this JSON file in the Firebase Console. Once you have it, specify its path in this configuration.
 
-### Usage
 
-
-IF you will use send notifications to all user, you should initialize all the devise tokens to topic "all". 
+**Configure your front application**
+IF you will use send notifications to all user, you should initialize all the devise tokens to topic "all" inside your front application (NOT FOR LARAVEL). 
 Example for Flutter:
 ```flutter
 import 'dart:convert';
@@ -151,7 +135,7 @@ If Im not mistaken for JAVA :
 ```java
     FirebaseMessaging.getInstance().subscribeToTopic("TopicName");
 ```
-
+### Usage
 Follow the steps below to find how to use the package.
 
 Example usage in **Controller/Service** or any class:

@@ -77,7 +77,7 @@ class Larafirebase
 
     public function sendNotification()
     {
-        if($this->fromRaw) {
+        if ($this->fromRaw) {
             return $this->callApi($this->fromRaw);
         }
 
@@ -91,15 +91,15 @@ class Larafirebase
             ],
         ];
 
-        if($this->token) {
+        if ($this->token) {
             $payload['message']['token'] = $this->token;
         }
 
-        if($this->topic) {
+        if ($this->topic) {
             $payload['message']['topic'] = $this->topic;
         }
 
-        if($this->additionalData) {
+        if ($this->additionalData) {
             $payload['message']['data'] = $this->additionalData;
         }
 
@@ -108,7 +108,7 @@ class Larafirebase
 
     public function sendNotificationAll()
     {
-        if($this->fromRaw) {
+        if ($this->fromRaw) {
             return $this->callApi($this->fromRaw);
         }
 
@@ -124,13 +124,67 @@ class Larafirebase
 
         ];
 
-        if($this->additionalData) {
+        if ($this->additionalData) {
             $payload['message']['data'] = $this->additionalData;
         }
 
         return $this->callApi($payload);
     }
 
+    public function sendNotificationUser(int $id)
+    {
+        if ($this->fromRaw) {
+            return $this->callApi($this->fromRaw);
+        }
+
+        $payload = [
+            'message' => [
+                'notification' => [
+                    'title' => $this->title,
+                    'body' => $this->body,
+                    'image' => $this->image,
+                ],
+                'topic' => "user_$id",
+            ],
+
+        ];
+
+        if ($this->additionalData) {
+            $payload['message']['data'] = $this->additionalData;
+        }
+
+        return $this->callApi($payload);
+    }
+
+    public function sendNotificationUsers(array $ids)
+    {
+        if ($this->fromRaw) {
+            return $this->callApi($this->fromRaw);
+        }
+
+        $conditions = [];
+        foreach ($ids as $id) {
+            $conditions[] = "'user_$id' in topics";
+        }
+
+        $payload = [
+            'message' => [
+                'notification' => [
+                    'title' => $this->title,
+                    'body' => $this->body,
+                    'image' => $this->image,
+                ],
+                "condition" => implode(" || ", $conditions), // Объединяем условия через "||"
+            ],
+        ];
+
+        if ($this->additionalData) {
+            $payload['message']['data'] = $this->additionalData;
+        }
+
+        return $this->callApi($payload);
+    }
+    
     private function getBearerToken()
     {
         $client = new Client();

@@ -33,8 +33,8 @@ php artisan vendor:publish --provider="GGInnovative\Larafirebase\Providers\Laraf
 
 Open the `larafirebase.php` configuration file, which you just published, and set the following values as needed:
 
-- `project_id`: Replace with your actual Firebase project ID.
-- `firebase_credentials`: This refers to the JSON credentials file for your Firebase project. Make sure it points to the correct location in your project. This JSON file contains the authentication information for your Firebase project, allowing your Laravel application to interact with Firebase services. You can generate this JSON file in the Firebase Console. Once you have it, specify its path in this configuration.
+- `project_id`: Replace with your actual Firebase project ID. (To get your project ID go to https://console.firebase.google.com/ -> choose your project -> Find "project settings (Inside Side-bar click on gear for now)" -> In "General" tab copy your "Project ID"). BTW it must be a string.
+- `firebase_credentials`: This refers to the JSON credentials file for your Firebase project. Make sure it points to the correct location in your project. This JSON file contains the authentication information for your Firebase project, allowing your Laravel application to interact with Firebase services. You can generate this JSON file in the Firebase Console. Once you have it, specify its path in this configuration. (To get your project JSON credentials FILE go to https://console.firebase.google.com/ -> choose your project -> Find "project settings (Inside Side-bar click on gear for now)" -> In "Service accounts" tab choose Firebase Admin SDK -> Generate new private key -> download the file and then put it inside your app"). BTW for 'firebase_credentials' => public_path('firebase_credentials.json') the file must be inside {project-folder}/public/, and the name of the file must be : "firebase_credentials.json".
 
 
 ### Configure your front application

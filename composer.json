@@ -25,8 +25,8 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "stable",
-    "prefer-stable": false,
+    "minimum-stability": "alpha",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [

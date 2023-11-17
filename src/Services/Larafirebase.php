@@ -106,6 +106,31 @@ class Larafirebase
         return $this->callApi($payload);
     }
 
+    public function sendNotificationAll()
+    {
+        if($this->fromRaw) {
+            return $this->callApi($this->fromRaw);
+        }
+
+        $payload = [
+            'message' => [
+                'notification' => [
+                    'title' => $this->title,
+                    'body' => $this->body,
+                    'image' => $this->image,
+                ],
+                'topic' => 'all',
+            ],
+
+        ];
+
+        if($this->additionalData) {
+            $payload['message']['data'] = $this->additionalData;
+        }
+
+        return $this->callApi($payload);
+    }
+
     private function getBearerToken()
     {
         $client = new Client();

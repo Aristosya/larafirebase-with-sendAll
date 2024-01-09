@@ -108,10 +108,6 @@ class Larafirebase
 
     public function sendNotificationAll()
     {
-        if ($this->fromRaw) {
-            return $this->callApi($this->fromRaw);
-        }
-
         $payload = [
             'message' => [
                 'notification' => [
@@ -133,9 +129,6 @@ class Larafirebase
 
     public function sendNotificationUser(int $id)
     {
-        if ($this->fromRaw) {
-            return $this->callApi($this->fromRaw);
-        }
 
         $payload = [
             'message' => [
@@ -158,10 +151,6 @@ class Larafirebase
 
     public function sendNotificationUsers(array $ids)
     {
-        if ($this->fromRaw) {
-            return $this->callApi($this->fromRaw);
-        }
-
         $conditions = [];
         foreach ($ids as $id) {
             $conditions[] = "'user_$id' in topics";
@@ -174,7 +163,32 @@ class Larafirebase
                     'body' => $this->body,
                     'image' => $this->image,
                 ],
-                "condition" => implode(" || ", $conditions), // Объединяем условия через "||"
+                "condition" => implode(" || ", $conditions), 
+            ],
+        ];
+
+        if ($this->additionalData) {
+            $payload['message']['data'] = $this->additionalData;
+        }
+
+        return $this->callApi($payload);
+    }
+
+    public function sendNotificationAndTopics(array $topics)
+    {
+        $conditions = [];
+        foreach ($topics as $topic) {
+            $conditions[] = "'$topic' in topics";
+        }
+
+        $payload = [
+            'message' => [
+                'notification' => [
+                    'title' => $this->title,
+                    'body' => $this->body,
+                    'image' => $this->image,
+                ],
+                "condition" => implode(" && ", $conditions), 
             ],
         ];
 
